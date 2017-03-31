@@ -1,0 +1,59 @@
+digraph 
+{
+	rankdir=TB;
+        compound=true;
+	fontname="Inconsolata, Consolas";
+	margin=0;
+	ranksep=0.3;
+	nodesep=0.3;
+	penwidth=0.5;
+	fontsize=10;
+
+	node [fontname="Inconsolata, Consolas", fontsize=10, penwidth=0.5 shape=record, colorscheme=spectral7];
+	edge [fontname="Inconsolata, Consolas", fontsize=10, penwidth=0.5, color=skyblue];
+
+	{
+		node [shape=record, style=filled, margin=0.1, height=0.3];
+		struct1 [label="<f0> | | | |<f1>| | | | | |<f2>B| | | | |<f3>A| | | | |<f4>C| | | |<f5> "];
+	}
+
+	{
+		rankdir=LR;
+		node [shape=Mrecord, style=filled, margin=0.1, height=0.5];
+		struct2 [fillcolor=4, label="|<f0>627|200|992| | | | | | |"];
+		struct3 [fillcolor=4, label="{123|833|4004|<f0>47}|{<f1> | |hello.c|userlist}"];
+	}
+
+	{	
+		node [shape=plaintext, margin=0];
+		note [label="Linux文件系统"];
+		note0 [label="超级块"];
+		note1 [label="i-节点"];
+		note1.1 [label="在i-节点中存储文件信息"];
+		note1.2 [label="存储数据块序列"];
+		note1.3 [label="47"];
+		note2 [label="200"];
+		note3 [label="627"];
+		note4 [label="992"];
+		note5 [label="磁盘"];
+		note6 [label="文件所使用的数据块列表"];
+		note7 [label="增加到目录的入口"];
+		note8 [label="目录"];
+	}
+	
+	note0 -> struct1:f0;
+	note1 -> struct1:f1;
+	note1.1 -> struct1:f1;
+        note1.2 -> struct1:f1;
+	note1.3 -> struct1:f1;
+	note2 -> struct1:f2;
+	note3 -> struct1:f3;
+	note4 -> struct1:f4;
+	note5 -> struct1[color=red];
+	note6 -> struct2:f0;
+	note7 -> struct3:f0;
+	note8 -> struct3[color=red];
+	struct1:f0 [colorscheme=red];
+//	struct1:f1 [color=green];
+	
+}
