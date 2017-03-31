@@ -1,0 +1,18 @@
+graph {
+	node [style=filled, fontname="Inconsolata, Consolas", fontsize=10, colorscheme=spectral7];
+	edge [penwidth=0.5, fontname="Inconsolata, Consolas", fontsize=10];
+	struct1 [fillcolor=4, label="Virtual File System"];
+	struct2 [fillcolor=5, label="ext3"];
+	struct3 [fillcolor=5, label="proc"];
+	struct4 [fillcolor=3, label="Buffer Cache"];
+	struct5 [fillcolor=4, label="Device Drivers"];
+	struct6 [fillcolor=3, label="Physical Devices"];
+	
+	struct1 -- struct2;
+	struct1 -- struct3;
+	struct2 -- struct4;
+	struct3 -- struct4;
+	struct4 -- struct5;
+	struct5 -- struct6;
+}
+
