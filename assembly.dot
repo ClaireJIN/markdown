@@ -1,0 +1,47 @@
+digraph {
+//	ranksep=0.3;
+//	nodesep=1;
+        rankdir=RL;	
+	node [fontname="Inconsolata, Consolas", fontsize=10, penwidth=0.5, colorscheme=spectral7];
+	edge [fontname="Inconsolata, Consolas", fontsize=10, penwidth=0.5];
+
+	{	rankdir=BT;
+	node [shape=record, style=filled, margin=0.1, height=0.3];
+	table1 [fillcolor=3, label="<p0>%ebp|<p1>8|<p2>%eip| | | | | | | | "];
+	}
+
+	{	rankdir=BT;
+	node [shape=record, style=filled, margin=0.1, height=0.3];
+	table2 [fillcolor=3, label="<p0>%ebp|<p1>8|<p2>%eip|<p3>%ebp|<p4>8|<p5>%eip| | | | | "];
+	}
+
+	{	rankdir=BT;
+	node [shape=record, style=filled, margin=0.1, height=0.3];
+	table3 [fillcolor=3, label="<p0>%ebp|<p1>8|<p2>%eip|<p3>%ebp|<p4>8|<p5>%eip|<p6>%ebp| | | |  "];
+	}
+
+        {
+	rankdir=BT;
+	node [shape=plaintext, margin=0];
+	ebp [label="%ebp"];
+	esp [label="%esp"];
+	ebp0 [label="%ebp"];
+	esp0 [label="%esp"];
+	ebp1 [label="%ebp"];
+	esp1 [label="%esp"];
+       
+	} 
+
+	{
+	rankdir=TB;
+	ebp1 -> table3:p6;
+	esp1 -> table3:p6;
+	ebp0 -> table2:p3;
+	esp0 -> table2:p5;
+	esp -> table1:p0;
+	ebp -> table1:p2;
+	}
+}        
+	
+	
+	
