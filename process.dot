@@ -1,0 +1,19 @@
+digraph G {
+	node [peripheries=2 style=filled color="#eecc80", shape=box]
+	edge [color="sienna" fontcolor="green"]
+	//"一个既在的进程调用fork来创建一个新进程"->"task_running '('就绪')'" [label="Task forks"];
+	a->b[label="task forks"];
+	b->c[label="调度器选择一个task, \n schedule() call context_switch"];
+	c->d[label="进程调用do_exit(), 终止执行"];
+	c->b[label="进程被高优先级的进程抢占"];
+	c->e[label="进程睡眠在等待特定事件\n或资源的等待队列上"];
+	e->b[label="事件发生或资源可用，\n进程被唤醒并被放到运行队列上"];
+	a[shape=box, label="既在进程使用fork创建新进程"];
+	b[label="task running, 就绪"];
+	c[label="task running, 正在运行"];
+	d[label="task zombie, 进程被终止"];
+	e[label="task interruptable or task uninterruptable"];
+
+
+	
+}
